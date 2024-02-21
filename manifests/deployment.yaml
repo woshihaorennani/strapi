@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: strapi-test
+  labels:
+    app: strapi-test
+  namespace: namespace-workflow-1708487295964
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: strapi-test
+  template:
+    metadata:
+      labels:
+        app: strapi-test
+    spec:
+      containers:
+        - name: strapi-test
+          image: strapiappserver.azurecr.io/image-workflow-1708487295964:latest
+          ports:
+            - containerPort: 1337
